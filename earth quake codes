@@ -1,0 +1,19 @@
+int sensorPin = A0; // connect vibration sensor to analog pin A0
+int buzzerPin = 8; // connect buzzer to digital pin 8
+
+void setup() {
+  pinMode(sensorPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = analogRead(sensorPin);
+  if (sensorValue > 100) { // adjust threshold value as needed
+    for(int i=0; i<500; i++) { // loop for 5 seconds
+      digitalWrite(buzzerPin, HIGH);
+      delay(1); // adjust delay time as needed for volume control
+      digitalWrite(buzzerPin, LOW);
+      delay(1); // adjust delay time as needed for volume control
+    }
+  }
+}
